@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="images/logo.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="images/logo.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="images/logo.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="images/logo.png">
+
+    <!-- GOOGLE WEB FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Manual CSS -->
+    <link rel="stylesheet" href="css files/loginstyle.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- bootstrap CSS links -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="bootstrap css/bootstrap.min.css.map">
+    <!-- FOnt awesome link -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navbar start -->
+    <div class="start">
+        <div class="container">
+            <nav class="navbar navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"><img src="images/logo.png" width="80px" alt="logo"></a>
+                    <form class="d-flex">
+                        <a class="nav-link active k" aria-current="page" href="#">Log in</a>
+                        <button type="button" class="btn btn1 btn-primary">Sign up</button>
+                    </form>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+
+    <!-- <br><br><br><br><br><br><br><br><br><br> -->
+
+    <!-- FOAM AND TEXT Start -->
+    <div class="container">
+
+        <div class="row">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-5 mt-5 first">
+                        <p>
+                        <h1 class="fs_h1">Connect your apps and automate workflows</h1>
+                        </p>
+                        <p class="p1">Easy automation for busy people. Zapier moves info between your web apps
+                            automatically, so you can focus on your most important work.</p>
+                    </div>
+                    <!-- <div class="col-md-1"></div> -->
+                    <div class="col-md-4 second mt-5">
+                        <form action="{{ url_for('login') }}" method="post" class="mx-4">
+                            <!-- <button class="create" align="center">Create New Account</button> -->
+                            <a href="#" class="btn btn-primary" id="margin"><i class="fab fa-google"></i> Sign Up With
+                                Google</a>
+                            <a href="#" class="btn " id="margin2"><i class="fab fa-facebook-square"></i> Sign Up With
+                                FaceBook</a>
+                            <a href="#" class="btn btn-dark" id="margin3"><i class="fab fa-microsoft"></i> Sign Up With
+                                Microsoft</a>
+                            <!-- <hr> -->
+                            <div class="mx-2" style="color: red;">{{ msg }}</div>
+                            <input name="username" type="text" id="username" placeholder="Enter Your Username"
+                                class="i1">
+                            <input id="password" name="password" type="password" placeholder="Enter Your Password"
+                                class="i2">
+                            <a href="#" class="btn btn-danger" id="margin4" type="submit">Sign In</a>
+                            <p class="fs mx-3">Dont't have an account? <a class="link" href="{{url_for('register')}}">
+                                    Sign Up here</a></p>
+                        </form>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FOAM AND TEXT END -->
+
+
+    <!-- CARDS 1 START -->
+    <!-- ------------------------------------------------------------------------- -->
+    <div class="bg-white">
+        <div class="container">
+
+            <div class="row">
+                <label for="" class="mt-5">
+                    <h2>One way on how you can connect zoom and youtube</h2>
+                </label>
+                <p class="text-center"><b>Just authorize your zoom and Youtube, we will take care of creating playlist
+                        and adding videos to that playlist.</b></p>
+                <div class="col-md-4 mb-5 ">
+                    <div class="card" style="width: 23rem;">
+                        <div class="card-body m-1">
+                            <!-- <h5 class="card-title cardimage"> -->
+                            <p class="cardimage"><img src="images/image1.jpg" alt="" width="150px"></p>
+                            <h4 class="card-subtitle mb-2 text-center">Integrate</h4>
+                            <p class="card-text mb-2 text-center">Link your web apps with a few clicks, so they can
+                                share data</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5 ">
+                    <div class="card" style="width: 23rem; height: 19.5rem;">
+                        <div class="card-body m-1">
+                            <!-- <h5 class="card-title cardimage"> -->
+                            <p class="cardimage2 px-5 mx-5"><img src="images/image2.jpg" alt="" width="150px"></p>
+                            <h4 class="card-subtitle mt-5 pt-2 text-center">Automate</h4>
+                            <p class="card-text mb-2 text-center">Pass info between your apps with workflows called Zaps
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5 ">
+                    <div class="card" style="width: 23rem; height: 19.5rem;">
+                        <div class="card-body m-1">
+                            <!-- <h5 class="card-title cardimage"> -->
+                            <p class="cardimage3 px-5 mx-5"><img src="images/image3.jpg" alt="" width="120px"></p>
+                            <h4 class="card-subtitle mt-5 pt-2 text-center">Innovate</h4>
+                            <p class="card-text mb-4 text-center">Build processes faster and get more done—no code
+                                required
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <iframe width="560" height="315" class="Youtube_video_first"
+                    src="https://www.youtube.com/embed/ulv_q6-b7uI" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- ------------------------------------  -->
+
+    <!-- CARD 1 END -->
+    <!-- CARD 2 Start -->
+    <div class="bg-white">
+        <div class="container">
+            <label for="" class="mt-5">
+                <h2>Other way on how you can connect zoom and youtube</h2>
+            </label>
+            <p class="text-center"><b>Authorize your zoom and Youtube. Choose your zoom meeting and Youtube
+                Playlist, We will upload your zoom recordings from that meeting to the playlist you have
+                selected.</b></p>
+            </div>
+            <div class="container">
+                <div class="row py-2">
+                <div class="col-md-2 mx-3">
+                    <div class="card" style="width: 16rem;">
+                        <div class="card-body">
+                            <p class="cardimage img1card2"><img src="images/second section image1.jpg" width="150px" alt=""></p>
+                        <h4 class="card-subtitle mb-2 text-center">Integrate</h4>
+                        <p class="card-text mb-2 text-center">Link your web apps with a few clicks, so they can
+                            share data</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 mx-3">
+                    <div class="card" style="width: 16rem;">
+                        <div class="card-body">
+                            <p class="cardimage"><img src="images/second section image2.jpg" width="150px" alt=""></p>
+                        <h4 class="card-subtitle mb-2 text-center">Integrate</h4>
+                        <p class="card-text mb-2 text-center">Link your web apps with a few clicks, so they can
+                            share data</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 mx-3">
+                    <div class="card" style="width: 16rem;">
+                        <div class="card-body">
+                            <p class="cardimage"><img src="images/second section image3.jpg" width="100px" alt=""></p>
+                        <h4 class="card-subtitle text-center">Integrate</h4>
+                        <p class="card-text text-center">Link your web apps with a few clicks, so they can
+                            share data</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 mx-3">
+                    <div class="card" style="width: 16rem;">
+                        <div class="card-body">
+                            <p class="cardimage"><img src="images/second section image4.jpg" width="120px"></p>
+                        <h4 class="card-subtitle text-center">Integrate</h4>
+                        <p class="card-text text-center">Link your web apps with a few clicks, so they can
+                            share data</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 mx-3">
+                    <div class="card" style="width: 16rem;">
+                        <div class="card-body">
+                            <p class="cardimage"><img src="images/second section image5 copy.jpg" width="120px" alt=""></p>
+                        <h4 class="card-subtitle text-center">Integrate</h4>
+                        <p class="card-text text-center">Link your web apps with a few clicks, so they can
+                            share data</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="container">
+            <div class="row">
+                <iframe width="560" height="315" class="Youtube_video_first"
+                    src="https://www.youtube.com/embed/ulv_q6-b7uI" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- ------------------------------------  -->
+
+
+    <!-- CARDS 2 START -->
+
+    <!-- CARD 2 END -->
+
+
+    <!-- footer start -->
+    <!-- <div class="bg-dark"> -->
+    <footer class="bg-dark bg_footer">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-2 p-4">
+                    <h2 class=" fs-5 mb-2"><a href="#" class="fotlink">Main heading</a></h2>
+                    <div><a href="#" class="fotlink">option 1</a></div>
+                    <div><a href="#" class="fotlink">option 2</a></div>
+                    <div><a href="#" class="fotlink">option 3</a></div>
+                    <div><a href="#" class="fotlink">option 4</a></div>
+                    <div><a href="#" class="fotlink">option 5</a></div>
+                    <div><a href="#" class="fotlink">option 6</a></div>
+                    <div><a href="#" class="fotlink">option 7</a></div>
+                    <div><a href="#" class="fotlink">option 8</a></div>
+                    <div><a href="#" class="fotlink">option 9</a></div>
+                    <div><a href="#" class="fotlink">option 10</a></div>
+                </div>
+                <div class="col-md-2 p-4">
+                    <h2 class=" fs-5 mb-2"><a href="#" class="fotlink">Main heading</a></h2>
+                    <div><a href="#" class="fotlink">option 1</a></div>
+                    <div><a href="#" class="fotlink">option 2</a></div>
+                    <div><a href="#" class="fotlink">option 3</a></div>
+                    <div><a href="#" class="fotlink">option 4</a></div>
+                    <div><a href="#" class="fotlink">option 5</a></div>
+                    <div><a href="#" class="fotlink">option 6</a></div>
+                    <div><a href="#" class="fotlink">option 7</a></div>
+                    <div><a href="#" class="fotlink">option 8</a></div>
+                    <div><a href="#" class="fotlink">option 9</a></div>
+                    <div><a href="#" class="fotlink">option 10</a></div>
+                </div>
+                <div class="col-md-2 p-4">
+                    <h2 class=" fs-5 mb-2"><a href="#" class="fotlink">Main heading</h2>
+                    <div><a href="#" class="fotlink">option 1</a></div>
+                    <div><a href="#" class="fotlink">option 2</a></div>
+                    <div><a href="#" class="fotlink">option 3</a></div>
+                    <div><a href="#" class="fotlink">option 4</a></div>
+                    <div><a href="#" class="fotlink">option 5</a></div>
+                    <div><a href="#" class="fotlink">option 6</a></div>
+                    <div><a href="#" class="fotlink">option 7</a></div>
+                    <div><a href="#" class="fotlink">option 8</a></div>
+                    <div><a href="#" class="fotlink">option 9</a></div>
+                    <div><a href="#" class="fotlink">option 10</a></div>
+                </div>
+                <div class="col-md-2 p-4">
+                    <h2 class=" fs-5 mb-2"><a href="#" class="fotlink">Main heading</h2>
+                    <div><a href="#" class="fotlink">option 1</a></div>
+                    <div><a href="#" class="fotlink">option 2</a></div>
+                    <div><a href="#" class="fotlink">option 3</a></div>
+                    <div><a href="#" class="fotlink">option 4</a></div>
+                    <div><a href="#" class="fotlink">option 5</a></div>
+                    <div><a href="#" class="fotlink">option 6</a></div>
+                    <div><a href="#" class="fotlink">option 7</a></div>
+                    <div><a href="#" class="fotlink">option 8</a></div>
+                    <div><a href="#" class="fotlink">option 9</a></div>
+                    <div><a href="#" class="fotlink">option 10</a></div>
+                </div>
+                <div class="col-md-2 p-4">
+                    <h2 class=" fs-5 mb-2"><a href="#" class="fotlink">Main heading</a></h2>
+                    <div><a href="#" class="fotlink">option 1</a></div>
+                    <div><a href="#" class="fotlink">option 2</a></div>
+                    <div><a href="#" class="fotlink">option 3</a></div>
+                    <div><a href="#" class="fotlink">option 4</a></div>
+                    <div><a href="#" class="fotlink">option 5</a></div>
+                    <div><a href="#" class="fotlink">option 6</a></div>
+                    <div><a href="#" class="fotlink">option 7</a></div>
+                    <div><a href="#" class="fotlink">option 8</a></div>
+                    <div><a href="#" class="fotlink">option 9</a></div>
+                    <div><a href="#" class="fotlink">option 10</a></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">Folow us <a href="#" class="fotlink"><i class="fab fa-facebook"></i></a><a
+                        href="#" class="fotlink px-1"><i class="fab fa-linkedin"></i></a><a href="#" class="fotlink">
+                        <i class="fab fa-twitter-square"></i></a><a href="#" class="fotlink px-1">
+                        <i class="fab fa-youtube"></i></a><a href="#" class="fotlink px-1">
+                        <i class="fas fa-rss"></i></a></div>
+                <div class="col-md-3"></div>
+                <div class="col-md-1"><a href="#" class="fotlink">Pricing</a></div>
+                <div class="col-md-1"><a href="#" class="fotlink">Help</a></div>
+                <div class="col-md-1"><a href="#" class="fotlink">Developer</a></div>
+                <div class="col-md-1"><a href="#" class="fotlink">Press</a></div>
+                <div class="col-md-1"><a href="#" class="fotlink">Jobs</a></div>
+                <div class="col-md-2"><a href="#" class="fotlink">For Company</a></div>
+            </div>
+        </div>
+        </div>
+        </div>
+        <div class="bg-dark fot2">
+            <div class="container mt-5 py-3">
+                <hr>
+                <div class="row">
+                    <div class="col-md-10 fot"> Developed by Muhammad Kumail. All right reserved.</div>
+                    <div class="col-md-2 "><a href="#" class="fotlink">Home</a></div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- Foooter end -->
+
+    <!-- Navbar End -->
+    <!-- bootstrap links -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+        <script src="bootstrap js/bootstrap.min.js.map"></script>
+</body>
+
+</html>
