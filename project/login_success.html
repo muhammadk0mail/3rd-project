@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <title> Spark Databox Connect </title>
+
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="images/logo.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="images/logo.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="images/logo.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="images/logo.png">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Manual CSS -->
+    <link rel="stylesheet" href="css files/login_success_style.css">
+    <!-- fontawesome link -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+    integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <!-- bootstrap link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap css/bootstrap.min.css.map">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+    </script>
+</head>
+
+<body onload="getzoomyoutubedata()">
+
+      <!-- Navbar start -->
+      <div class="start bg-light">
+        <div class="container">
+            <nav class="navbar navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"><img src="images/logo.png" width="80px" alt="logo"></a>
+                    <form class="d-flex">
+                        <a class="nav-link active k" aria-current="page" href="connected_account_and_connected_playlist.html">Account And PlayList</a>
+                        <p class="word" dir="rtl"><a class="top btn btn-primary" href="{{url_for('logout')}}"> logout</a></p>
+                    </form>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="mt-5 p-5 bg-light login_success_main">
+        <div>
+            <h4 class="word " style="color: red;">{{msg}}</h4>
+        </div>
+        
+        <!-- *************************************** -->
+        <div class="container">
+            <div class="select-box">
+              <div class="options-container">
+                <div class="option mt-3">
+                  <label for="science1" class="d-block fs-4 my-4">Choose account</label>
+                  <div class="SITYA">
+                  <a href="#" class="btn btn-danger d-block fs-4"><i class="fab fa-youtube fs-3 "></i> Sign In To Youtube Account</a>
+                  </div>
+              </div>
+        
+              </div>
+        
+              <div class="selected fs-5 btn-danger">
+                <i class="fab fa-youtube fs-5 "></i> 1. Click on Authorize Youtube button to add your youtube account
+              </div>
+            </div>
+          </div>
+        
+          <!-- -------------------- -->
+          <div class="cenicon">
+          <span class="d-block cen fs-5 mx-5 px-5">&#x1f517;</span>
+        </div>
+        <div class="container">
+            <div class="select-box">
+              <div class="options-container1">
+        
+                <div class="option1 mt-3">
+                  <label for="science" class="d-block fs-4 my-4">Choose account</label>
+                  <div class="SITYA">
+                  <a href="#" class="btn btn-primary d-block fs-4"><i class="fab fa-youtube fs-3 "></i> Sign In To Zoom Account</a>
+                  </div>
+              </div>
+        
+              </div>
+        
+              <div class="selected1 bg-primary fs-5">
+                <i class="fas fa-video"></i> 2. Click on Authorize Zoom button to add your Zoom account
+              </div>
+            </div>
+          </div>        
+
+        <!-- ************************************8 -->
+
+
+        <!-- <div class="Youtube">
+            <a href="{{ url_for('youtubelogin') }}" class="btn btn-danger Youtube1" target="_blank"
+                rel="noopener noreferrer">
+                <i class="fab fa-youtube"></i> Authorize Youtube
+            </a>
+            <a href={{zoom_login_url}} target="_blank" class="btn btn-primary  Youtube2" rel="noopener noreferrer">
+                <i class="fas fa-video"></i> Authorize ZOOM</a>
+        </div> -->
+        <!-- ``````````````````````````````````````````````````````````````````````````````````````` -->
+
+        <div class="ajax-loader">
+            <img src="{{url_for('static', filename='loading.gif')}}" class="img-responsive" />
+        </div>
+
+        <form class="form-inline mt-5 form_of_login_successfull" method="POST"
+            action="{{ url_for('connectyoutubezoom') }}">
+
+            <!-- ------------------------------------------------------------------------- -->
+            <div class="Connect_existing_Youtube_Playlist fw-bold p-4"  dir="rtl">
+                Connect and Disconnect existing Playlist
+                <label class="switch">
+                    <input type="checkbox" checked onclick="showplaylist()">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <!-- ``````````````````````````````````````````````````````````````````````````````````````` -->
+        <!-- ------------------------------------------------------------------------- -->
+        <div class="container">
+          <div class="select-box">
+            <div class="options-container2">
+      
+              <div class="option2 mt-3">      
+        
+        <select class="form-select bg form-select-lg mb-3 form-control" aria-label=".form-select-lg example"
+                id="youtubechannels" name="youtubechannels" onchange="getyoutubeplaylistjs()">
+                
+                <option value="Youtube Accounts" selected="true" disabled>Connected Youtube Accounts</option>
+                {% for c in channels %}
+                <OPTION value="{{c[0]}}">{{c[1]}}</option>
+                {% endfor %}
+            </select>
+        <div>
+            <select class="form-select form-select-lg mb-3 orm-control form-control" aria-label=".form-select-lg example"
+                id="youtubeplaylists" name="youtubeplaylists">
+                >
+                <option value="Youtube playlist" class="" selected="true" disabled>Select Youtube playlist</option>
+            </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="selected2 fs-5 bg-danger" id="step#03">
+        <i class="fab fa-youtube fs-3"></i> 3. Select Your Youtube Account & playlist to connect
+      
+      
+      </div>
+  </div>
+</div>
+        <!-- ------------------------------------------------------------------------- -->
+
+        <div class="container">
+          <div class="select-box">
+            <div class="options-container3">
+      
+              <div class="option3 mt-3">
+      
+            <select class="form-select form-select-lg mb-3 form-control" aria-label=".form-select-lg example"
+            id="zoomchannels" name="zoomchannels" class="none" onchange="getzoommeetingsjs()">
+            <option value="Zoom Accounts"  selected="true" disabled class="bg">Connected Zoom Accounts</option>
+                {% for c in zoomchannels %}
+                <OPTION value="{{c[0]}}" class="bg">{{c[1]}}</option>
+                {% endfor %}
+            </select>
+        <div>
+
+            <select class="form-select form-select-lg mb-3 form-control" aria-label=".form-select-lg example"
+            id="zoommeetings" name="zoommeetings">
+                
+                <option value="Zoom Meetings" selected="true" disabled>Select Zoom meeting</option>
+            </select>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="selected3 fs-5 bg-primary"  id="step#04">
+      <i class="fas fa-video"></i> 4. Select Your Zoom Account & playlist to connect
+      
+    </div>
+  </div>
+</div>
+
+
+        <!-- ------------------------------------------------------------------------- -->
+        <div dir="rtl" class="m-3">
+            <a href="https://zoom.us/logout" target="_blank" rel="noopener noreferrer" class="btn btn-primary fs-5 d-inline">Logout Zoom <i class="fas fa-video"></i> </a>
+        </div>
+            <!-- ``````````````````````````````````````````````````````````````````````````````````````` -->            
+<div class="container m-3">
+    <div class="row">
+
+      <div class="col-md-1"></div>
+
+        <div class="col-md-1">
+             <a name="action" value="disconnect" type="submit" class="btn" href="#"><img src="images/disconnect.jpg" width="1900%" alt=""></a>
+        </div>
+
+        <div class="col-md-3"></div>
+
+        <div class="col-md-1">
+            <a name="action" value="connect" type="submit" class="btn" href="#"><img src="images/disconnect.jpg" alt=""  width="1900%"></a>
+
+        </div>
+        <!-- <div class="col-md-6"></div> -->
+    </div>
+</div>            
+            
+        </form>
+        <!-- ------------------------------------------------------------------------- -->
+
+   </div>
+</div>
+        <!-- ------------------------------------------------------------------------- -->
+        
+        <!-- ------------------------------------------------------------------------- -->
+    </div>
+    <!-- *************************************** -->
+    
+    <!-- bootstrap links -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+    <!-- Manual JAVA SCRIPT FILE -->
+    <script src="app.js"></script>
+    <script src="bootstrap js/bootstrap.min.js.map"></script>
+</body>
+</html>
